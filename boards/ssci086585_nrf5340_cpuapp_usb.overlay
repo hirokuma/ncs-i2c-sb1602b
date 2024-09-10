@@ -31,6 +31,10 @@
 	};
 };
 
+&usbd {
+	status = "okay";
+};
+
 &uart0 {
 	status = "okay";
 };
@@ -67,9 +71,9 @@
 &i2c1 {
 	status = "okay";
 
-    sb1602: sb1602@3e{
-        compatible = "i2c-device";
-        status = "okay";
-        reg = < 0x3e >;
-    };
+	sb1602: sb1602@3e{
+		compatible = "i2c-device";
+		status = "okay";
+		reg = < 0x3e >;
+	};
 };
