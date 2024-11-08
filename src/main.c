@@ -24,6 +24,15 @@ int main(void)
 {
     int ret;
 
+#ifdef CONFIG_USB_DEVICE_STACK
+	if (IS_ENABLED(CONFIG_USB_DEVICE_STACK)) {
+		int ret = usb_enable(NULL);
+		if (ret) {
+			return -1;
+		}
+	}
+#endif
+
     ret = led_init();
     if (ret != 0) {
         printk("fail led_init(): ret=%d\n", ret);
