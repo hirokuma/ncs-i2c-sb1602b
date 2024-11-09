@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.20.0)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
-project(ncs-i2c-sb1602b)
+project(src)
 
-add_subdirectory(src)
+add_subdirectory(drivers)
+target_sources(app PRIVATE
+    main.c
+)

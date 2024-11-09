@@ -1,8 +1,8 @@
 #include <zephyr/kernel.h>
 #include <zephyr/sys/printk.h>
 
-#include "drivers/led.h"
-#include "drivers/sb1602b.h"
+#include "drivers/led/led.h"
+#include "drivers/sb1602/sb1602b.h"
 
 #if defined CONFIG_BOARD_SSCI086585_NRF5340_CPUAPP
 
@@ -25,12 +25,12 @@ int main(void)
     int ret;
 
 #ifdef CONFIG_USB_DEVICE_STACK
-	if (IS_ENABLED(CONFIG_USB_DEVICE_STACK)) {
-		int ret = usb_enable(NULL);
-		if (ret) {
-			return -1;
-		}
-	}
+    if (IS_ENABLED(CONFIG_USB_DEVICE_STACK)) {
+        int ret = usb_enable(NULL);
+        if (ret) {
+            return -1;
+        }
+    }
 #endif
 
     ret = led_init();

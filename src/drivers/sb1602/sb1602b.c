@@ -52,10 +52,10 @@ int sb1602b_init(void)
 {
     int ret;
 
-	if (!i2c_is_ready_dt(&dev_i2c)) {
-		printk("I2C bus %s is not ready!\n", dev_i2c.bus->name);
-		return -1;
-	}
+    if (!i2c_is_ready_dt(&dev_i2c)) {
+        printk("I2C bus %s is not ready!\n", dev_i2c.bus->name);
+        return -1;
+    }
 
     //リセット解除から40ms必要
     k_msleep(40);
@@ -149,7 +149,7 @@ int sb1602b_init(void)
         return -1;
     }
 
-	return 0;
+    return 0;
 }
 
 /**
